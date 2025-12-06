@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>English Machen</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>English Learning</h1>
+  <p>Platforma do nauki Gramatyki i Słownictwa w zakresie podstawowym i rozszerzonym <strong> Strona jest nadal w wersji beta. Pełna wersja pojawi się wkrótce</strong></p>
+  <button id="dark-mode-toggle" aria-label="Toggle dark mode"><span>Ciemny Motyw</span></button>
+</header>
+<main>
+  <section id="vocabulary">
+    <h2>Słownictwo</h2>
+    <p>Wybierz kategorię i naciśnij przycisk "Pokaż znaczenie" aby zobaczyć znaczenie słowa w języku Angielskim </p>
+    <div class="tabs" id="vocab-tabs">
+    </div>
+    <ul class="vocab-list" id="vocab-list">
+    </ul>
+    <p id="vocab-meaning-display" style="margin-top:1rem; font-style: italic; color: var(--text-color);"></p>
+  </section>
+
+  <section id="grammar">
+    <h2>Wskazówki Gramatyczne</h2>
+    <div class="grammar-tips">
+      <ul>
+        <li><strong>Present Simple:</strong> używany jest do opisywania czynności, które są powtarzalne, stałe lub są prawdami ogólnymi. Zazwyczaj stosowany jest do wyrażania nawyków, zwyczajów, sytuacji stałych, opisów stanu rzeczy, a także wyrażania uczuć.</li>
+        <li><strong>Budowa czasu:</strong> podmiot + czasownik (w trzeciej osobie dodajemy „-s” lub „-es”). W przeczeniach dodajemy „do not”/„does not”, a pytania zaczynamy od „do” lub „does"</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="quiz">
+    <h2>Szybki Quiz</h2>
+    <p class="quiz-question" id="quiz-question">1. Choose the correct word to complete the sentence: "She _____ to school every day."</p>
+    <ul class="quiz-options">
+      <li><input type="radio" id="q1a" name="q1" value="go"><label for="q1a">go</label></li>
+      <li><input type="radio" id="q1b" name="q1" value="goes"><label for="q1b">goes</label></li>
+      <li><input type="radio" id="q1c" name="q1" value="going"><label for="q1c">going</label></li>
+      <li><input type="radio" id="q1d" name="q1" value="gone"><label for="q1d">gone</label></li>
+    </ul>
+    <button class="check-answer" id="check-answer-btn">Sprawdź odpowiedź</button>
+    <p class="quiz-result" id="quiz-result"></p>
+  </section>
+</main>
+<footer>
+  &copy; 2025 Verald. Wszytkie prawa zastrzeżone.
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

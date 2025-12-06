@@ -1,0 +1,269 @@
+/* Jasny/Ciemny motyw */
+:root {
+  --bg-color: #f5f9ff;
+  --text-color: #212121;
+  --header-bg: linear-gradient(135deg, #3a86ff, #8338ec);
+  --header-text: white;
+  --section-bg: white;
+  --section-shadow: rgba(0,0,0,0.07);
+  --primary-color: #3a86ff;
+  --secondary-color: #8338ec;
+  --vocab-bg: #e0f0ff;
+  --vocab-hover-bg: #a8d0ff;
+  --button-bg: #3a86ff;
+  --button-hover-bg: #8338ec;
+  --border-color: #ddd;
+  --quiz-answer-bg: #3a86ff;
+  --quiz-answer-border: #3a86ff;
+  --quiz-answer-hover-bg: #8338ec;
+}
+
+body.dark-theme {
+  --bg-color: #121217;
+  --text-color: #e0e0e0;
+  --header-bg: linear-gradient(135deg, #6a5acd, #4b0082);
+  --header-text: #ddd;
+  --section-bg: #22222b;
+  --section-shadow: rgba(0,0,0,0.8);
+  --primary-color: #6a5acd;
+  --secondary-color: #4b0082;
+  --vocab-bg: #3a3a4f;
+  --vocab-hover-bg: #555581;
+  --button-bg: #4b0082;
+  --button-hover-bg: #6a5acd;
+  --border-color: #444455;
+  --quiz-answer-bg: #6a5acd;
+  --quiz-answer-border: #6a5acd;
+  --quiz-answer-hover-bg: #4b0082;
+}
+
+/* Reset i globalne */
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+header {
+  background: var(--header-bg);
+  color: var(--header-text);
+  padding: 2rem 1rem;
+  text-align: center;
+  box-shadow: 0 4px 10px var(--section-shadow);
+  position: relative;
+}
+header h1 {
+  margin: 0;
+  font-size: 2.8rem;
+  letter-spacing: 2px;
+}
+header p {
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+  font-weight: 300;
+}
+
+/* Przycisk ciemnego motywu */
+#dark-mode-toggle {
+  position: absolute;
+  top: 1.75rem;
+  right: 1.5rem;
+  background: transparent;
+  border: 1.5px solid var(--header-text);
+  color: var(--header-text);
+  padding: 0.5rem 1rem;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+#dark-mode-toggle:hover {
+  background: var(--header-text);
+}
+
+#dark-mode-toggle span{
+  color: rgba(255,255,255,1);
+}
+#dark-mode-toggle:hover span{
+  color: transparent;
+  background-image: var(--header-bg);
+  background-clip: text;
+  text-shadow: none
+}
+
+main {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem 4rem;
+}
+section {
+  background: var(--section-bg);
+  margin-bottom: 2rem;
+  padding: 1.8rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px var(--section-shadow);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+section h2 {
+  color: var(--primary-color);
+  margin-top: 0;
+  border-bottom: 3px solid var(--primary-color);
+  padding-bottom: 6px;
+  font-size: 1.8rem;
+}
+/* Słownictwo */
+.tabs {
+  display: flex;
+  border-bottom: 3px solid var(--primary-color);
+  margin-bottom: 1rem;
+  user-select: none;
+}
+.tab {
+  padding: 0.7rem 1.5rem;
+  margin-right: 0.5rem;
+  cursor: pointer;
+  border-radius: 8px 8px 0 0;
+  background: var(--vocab-bg);
+  color: var(--primary-color);
+  font-weight: 600;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+.tab:hover {
+  background: var(--vocab-hover-bg);
+}
+.tab.active {
+  background: var(--section-bg);
+  color: var(--secondary-color);
+  border-bottom: 3px solid var(--section-bg);
+  font-weight: 700;
+  box-shadow: 0 -4px 10px rgba(131,56,236,0.4);
+}
+.vocab-list {
+  list-style: none;
+  padding-left: 0;
+  max-height: 320px;
+  overflow-y: auto;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  transition: border-color 0.3s ease;
+}
+.vocab-list li {
+  background: var(--vocab-bg);
+  margin: 0.5rem 0;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: default;
+  transition: background 0.3s ease;
+}
+.vocab-list li:hover {
+  background: var(--vocab-hover-bg);
+}
+.vocab-list button {
+  background: var(--button-bg);
+  border: none;
+  color: white;
+  border-radius: 5px;
+  padding: 0.4rem 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.vocab-list button:hover {
+  background: var(--button-hover-bg);
+}
+
+/* Gramatyka */
+.grammar-tips {
+  line-height: 1.5;
+}
+.grammar-tips ul {
+  margin: 0.5rem 0 0 1.4rem;
+}
+.grammar-tips li {
+  margin-bottom: 0.5rem;
+}
+
+/* Quiz */
+.quiz-question {
+  font-size: 1.1rem;
+  margin-bottom: 0.6rem;
+}
+.quiz-options {
+  list-style: none;
+  padding-left: 0;
+}
+.quiz-options li {
+  margin-bottom: 0.6rem;
+}
+.quiz-options label {
+  cursor: pointer;
+  user-select: none;
+  display: block;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  border: 2px solid var(--quiz-answer-border);
+  transition: background 0.3s, border-color 0.3s;
+  color: var(--text-color);
+}
+.quiz-options input[type="radio"] {
+  display: none;
+}
+.quiz-options input[type="radio"]:checked + label {
+  background: var(--quiz-answer-bg);
+  color: white;
+  border-color: var(--quiz-answer-border);
+}
+button.check-answer {
+  margin-top: 1rem;
+  background: var(--button-bg);
+  color: white;
+  font-weight: 700;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 6px 12px rgb(58 134 255 / 0.6);
+  transition: background 0.3s ease;
+}
+button.check-answer:hover {
+  background: var(--button-hover-bg);
+}
+.quiz-result {
+  margin-top: 1rem;
+  font-weight: 700;
+  font-size: 1.2rem;
+  min-height: 1.4em;
+}
+footer {
+  text-align: center;
+  color: #777;
+  font-size: 0.9rem;
+  padding: 1rem;
+  border-top: 1px solid var(--border-color);
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 2rem;
+  }
+  main {
+    margin: 1rem;
+  }
+  .tabs {
+    flex-wrap: wrap;
+  }
+  .tab {
+    margin-bottom: 0.5rem;
+  }
+}
