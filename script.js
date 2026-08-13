@@ -1,3 +1,4 @@
+/* Made by NOWY */
 const audioTracks = [
     "./MUSIC/Deftones-Change.mp3",
     "./MUSIC/OXYGEN.mp3",
